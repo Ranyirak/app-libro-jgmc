@@ -1,12 +1,11 @@
 ##################################################################################################
-import re
 from flask import Flask, render_template, request, redirect
 from flask.templating import render_template_string
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"]="postgresql+psycopg2://postgres:PostRei25@localhost:5432/bd"
+app.config["SQLALCHEMY_DATABASE_URI"]="postgresql://gbfqhjpwdaxekz:672f77b4a4a451769c1dd9aedd4ef0e457c6ce8d1025a709713c274e30d2ebf9@ec2-3-211-228-251.compute-1.amazonaws.com:5432/d11s3e4i12k8gc"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"]=False
 
 db = SQLAlchemy(app)
