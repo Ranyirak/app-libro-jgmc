@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block contenido %}
+    <main>   
+      <section class="recent">
+          <div class="activity-grid">
+              <div class="activity-card">
+              <h3>Listado de Editoriales</h3>
+                  <div class="table-responsive">
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>Nombre</th>
+                          <th>Editar</th>
+                          <th>Borrar</th>
+                        </tr>
+                      </thead>
+                      
+                      <tbody>
+                        {% for editorial in consulta %}
+                          <tr>
+                            <td class="text-td">{{editorial.nombre_editorial}}</td>
+                            <td><a href="/editareditorial/{{editorial.id_editorial}}"><span class="icon"><i class="fas fa-edit"></i></span></a></td>
+                            <td><a href="/eliminaredi/{{editorial.id_editorial}}"><span class="icon"><i class="fas fa-eraser"></i></span></a></td>
+                          </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+              </div>
+              <br>
+              <button><a href="/editorial">Nuevo Editorial</a></button>
+            </div>
+      </section>
+    </main>
+{% endblock %}

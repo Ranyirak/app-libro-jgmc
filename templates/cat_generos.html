@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block contenido %}
+    <main>   
+      <section class="recent">
+          <div class="activity-grid">
+              <div class="activity-card">
+              <h3>Listado de Generos</h3>
+                  <div class="table-responsive">
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>Nombre</th>
+                          <th>Editar</th>
+                          <th>Borrar</th>
+                        </tr>
+                      </thead>
+                      
+                      <tbody>
+                        {% for genero in consulta %}
+                          <tr>
+                            <td class="text-td">{{genero.nombre_genero}}</td>
+                            <td><a href="/editargenero/{{genero.id_genero}}"><span class="icon"><i class="fas fa-edit"></i></span></a></td>
+                            <td><a href="/eliminargenero/{{genero.id_genero}}"><span class="icon"><i class="fas fa-eraser"></i></span></a></td>
+                          </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+              </div>
+              <br>
+              <button><a href="/genero">Nuevo Genero</a></button>
+            </div>
+      </section>
+    </main>
+{% endblock %}

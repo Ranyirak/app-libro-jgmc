@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block contenido %}
+    <main>   
+        <section class="recent">
+            <div class="activity-grid">
+                <div class="activity-card">
+                <h3>Listado de Libros</h3>
+                    <div class="table-responsive">
+                        <form action="/register_autor" method="post">
+                            <input type="text" name="nombre_autor" placeholder="Nombre del autor" value="">
+                            <br>
+                            <input type="date" name="fecha_nac" placeholder="Fecha de nacimiento" value="">
+                            <br>
+                            <input type="text" name="nacionalidad" placeholder="Nacionalidad" value="">
+                            <br>
+                            <br>
+                            <input type="submit" value="Registrar">
+                        </form>
+                    </div>
+                </div>
+              </div>
+        </section>
+      </main>
+{% endblock %}

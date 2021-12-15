@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block contenido %}
+    <main>   
+        <section class="recent">
+            <div class="activity-grid">
+                <div class="activity-card">
+                <h3>Registro de Genero</h3>
+                    <div class="table-responsive">
+                        <form action="/register_genero" method="post">
+                            <input type="text" name="nombre_genero" placeholder="Nombre del genero" value="">
+                            <br>
+                            <br>
+                            <input type="submit" value="Registrar">
+                        </form>
+                    </div>
+                </div>
+              </div>
+        </section>
+      </main>
+{% endblock %}

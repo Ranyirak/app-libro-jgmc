@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block contenido %}
+
+    <main>   
+        <section class="recent">
+            <div class="activity-grid">
+                <div class="activity-card">
+                <h3>Registrar Libro</h3>
+                    <div class="table-responsive">
+                        <form action="/registrar_libro" method="post">
+                            <input type="text" name="titulo_libro" placeholder="Titulo del Libro" value="">
+                            <br>
+                            <input type="date" name="fecha_publicacion" placeholder="YYYY/MM/DD" value="">
+                            <br>
+                            <input type="number" name="numero_paginas" placeholder="Numero de Paginas" value="">
+                            <br>
+                            <input type="text" name="formato" placeholder="Digital/Fisico" value="">
+                            <br>
+                            <input type="number" name="volumen" placeholder="Num. de Volumen" value="">
+                            <br>
+                    
+                            <div class="field">
+                                <select name="editorial">
+                                    {% for editorial in consulta_editorial %}
+                                        <option value="{{editorial.id_editorial}}">
+                                            {{editorial.nombre_editorial}}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                    
+                            <div class="field">
+                                <select name="autor">
+                                    {% for autor in consulta_autor %}
+                                        <option value="{{autor.id_autor}}">
+                                            {{autor.nombre_autor}}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                    
+                            <div class="field">
+                                <select name="genero">
+                                    {% for genero in consulta_genero %}
+                                        <option value="{{genero.id_genero}}">
+                                            {{genero.nombre_genero}}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                    
+                            <br>
+                            <input type="submit" value="Registrar">
+                        </form>
+                    </div>
+                </div>
+              </div>
+        </section>
+      </main>
+{% endblock %}

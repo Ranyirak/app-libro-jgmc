@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block contenido %}
+    <main>   
+        <section class="recent">
+            <div class="activity-grid">
+                <div class="activity-card">
+                <h3>Registro de Genero</h3>
+                    <div class="table-responsive">
+                        <form action="/modificargenero" method="post">
+                            <label for="titulo" class="lab-crear">Nombre del genero:</label>
+                            <input type="text" name="nombre_genero" value="{{genero.nombre_genero}}">
+                            <input type="hidden" name="id_genero" value="{{genero.id_genero}}">
+                            <br>
+                            <br>
+                            <input type="submit" value="Modificar">
+                        </form>
+                    </div>
+                </div>
+              </div>
+        </section>
+    </main>
+{% endblock %}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% block head %}
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block titulo %}{% endblock %}</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <link rel="stylesheet" href="/static/css/style.css">
+  <script src="https://kit.fontawesome.com/dbf3a26e61.js" crossorigin="anonymous"></script>
+</head>
+{% endblock %}
+
+{% block body %}
+<body>
+
+{% block encabezado %}
+<input type="checkbox" id="sidebar-toggle">
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h3 class="brand">
+                <span><img src="/static/images/logo.png" height="40px" width="50px"></span> 
+                <span><a href="/menu">Origin Library</a></span>
+            </h3> 
+            <label for="sidebar-toggle" class="ti-menu-alt"></label>
+        </div>
+        
+        <div class="sidebar-menu">
+            <ul>
+                <li>
+                    <a href="/menu">
+                        <span class="icon">
+                            <i class="fas fa-home"></i>
+                        </span>
+                        <span>Principal</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/cat_libros">
+                        <span class="icon">
+                            <i class="fas fa-book"></i>
+                        </span>
+                        <span>Libros</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/cat_autores">
+                        <span class="icon">
+                            <i class="fas fa-feather-alt"></i>
+                        </span>
+                        <span>Autores</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/cat_editoriales">
+                        <span class="icon">
+                            <i class="fas fa-newspaper"></i>
+                        </span>
+                        <span>Editoriales</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/cat_generos">
+                        <span class="icon">
+                            <i class="fas fa-dragon"></i>
+                        </span>
+                        <span>Generos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/misfavoritos">
+                        <span class="icon">
+                            <i class="fas fa-heart"></i>
+                        </span>
+                        <span>Mis favoritos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/">
+                        <span class="icon">
+                            <i class="fas fa-times-circle"></i>
+                        </span>
+                        <span>Cerrar sesión</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    
+    <div class="main-content">
+        <header>
+            <div class="search-wrapper">
+            </div>
+            
+            <div class="social-icons">
+                <span class=""></span>
+                <span class="ti-ticket"></span>
+                <div></div>
+            </div>
+        </header>
+    </div>
+{% endblock %}
+
+{% block contenido %}
+{% endblock %}
+
+{% block pie %}
+{% endblock %}
+
+</body>
+{% endblock %}
+
+</html>

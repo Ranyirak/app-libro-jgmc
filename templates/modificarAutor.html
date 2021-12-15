@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block contenido %}
+    <main>   
+        <section class="recent">
+            <div class="activity-grid">
+                <div class="activity-card">
+                <h3>Registro de Autor</h3>
+                    <div class="table-responsive">
+                        <form action="/modificarautor" method="post">
+                            <label for="titulo" class="lab-crear">Nombre del autor:</label>
+                            <input type="text" name="nombre_autor" value="{{autor.nombre_autor}}">
+                            <br>
+                            <label for="titulo" class="lab-crear">Fecha de nacimiento:</label>
+                            <input type="date" name="fecha_nac" value="{{autor.fecha_nac}}">
+                            <br>
+                            <label for="titulo" class="lab-crear">Nacionalidad:</label>
+                            <input type="text" name="nacionalidad" value="{{autor.nacionalidad}}">
+                            <input type="hidden" name="id_autor" value="{{autor.id_autor}}">
+                            <br>
+                            <br>
+                            <input type="submit" value="Modificar">
+                        </form>
+                    </div>
+                </div>
+              </div>
+        </section>
+    </main>
+{% endblock %}

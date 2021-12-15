@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block contenido %}
+    <main>   
+      <section class="recent">
+          <div class="activity-grid">
+              <div class="activity-card">
+              <h3>Listado de Autores</h3>
+                  <div class="table-responsive">
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>Nombre</th>
+                          <th>Fecha de Nacimiento</th>
+                          <th>Nacionalidad</th>
+                          <th>Editar</th>
+                          <th>Borrar</th>
+                        </tr>
+                      </thead>
+                      
+                      <tbody>
+                        {% for autor in consulta %}
+                          <tr>
+                            <td class="text-td">{{autor.nombre_autor}}</td>
+                            <td class="text-td">{{autor.fecha_nac}}</td>
+                            <td class="text-td">{{autor.nacionalidad}}</td>
+                            <td><a href="/editarautor/{{autor.id_autor}}"><span class="icon"><i class="fas fa-edit"></i></span></a></td>
+                            <td><a href="/eliminarautor/{{autor.id_autor}}"><span class="icon"><i class="fas fa-eraser"></i></span></a></td>
+                          </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+              </div>
+              <br>
+              <button><a href="/autor">Nuevo Autor</a></button>
+            </div>
+      </section>
+    </main>
+{% endblock %}

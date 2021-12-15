@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block head %}
+<head>
+  <meta charset="utf-8">
+  <title>{% block titulo %}Login{% endblock %}</title>
+  <link rel="stylesheet" href="/static/css/form_user.css">
+</head>
+{% endblock %}
+
+{% block encabezado %}
+{% endblock %}
+
+{% block contenido %}
+<section class="form-register">
+  <h4>Login</h4>
+  <form action="/login" method="post">
+    <input class="controls" type="email" name="email" placeholder="Email" value="">
+    <input class="controls" type="password" name="password" placeholder="Password" value="">
+    <p><a href="/register" class="e-link">Registrarte</a></p>
+    <input class="botons" type="submit" value="Ingresar">
+  </form>
+</section>
+{% endblock %}

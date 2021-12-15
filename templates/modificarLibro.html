@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% block contenido %}
+    <main>   
+        <section class="recent">
+            <div class="activity-grid">
+                <div class="activity-card">
+                <h3>Registro de Libro</h3>
+                    <div class="table-responsive">
+                        <form action="/modificarlibro" method="post">
+                            <label for="titulo" class="lab-crear">Titulo del libro:</label>
+                            <input type="text" name="titulo_libro" value="{{libro.titulo_libro}}">
+                            <br>
+                            <label for="titulo" class="lab-crear">Fecha de publicacion:</label>
+                            <input type="date" name="fecha_publicacion" value="{{libro.fecha_publicacion}}">
+                            <br>
+                            <label for="titulo" class="lab-crear">Numero de paginas:</label>
+                            <input type="number" name="numero_paginas" value="{{libro.numero_paginas}}">
+                            <br>
+                            <label for="titulo" class="lab-crear">Formato:</label>
+                            <input type="text" name="formato" value="{{libro.formato}}">
+                            <br>
+                            <label for="titulo" class="lab-crear">Volumen:</label>
+                            <input type="number" name="volumen" value="{{libro.volumen}}">
+                            <br>
+
+                            <div class="field">
+                                <select name="editorial">
+                                    {% for editorial in consulta_editorial %}
+                                        <option value="{{editorial.id_editorial}}">
+                                            {{editorial.nombre_editorial}}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                    
+                            <div class="field">
+                                <select name="autor">
+                                    {% for autor in consulta_autor %}
+                                        <option value="{{autor.id_autor}}">
+                                            {{autor.nombre_autor}}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                    
+                            <div class="field">
+                                <select name="genero">
+                                    {% for genero in consulta_genero %}
+                                        <option value="{{genero.id_genero}}">
+                                            {{genero.nombre_genero}}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+
+                            <input type="hidden" name="id_libro" value="{{libro.id_libro}}">
+                            <br>
+                            <br>
+                            <input type="submit" value="Modificar">
+                        </form>
+                    </div>
+                </div>
+              </div>
+        </section>
+    </main>
+{% endblock %}

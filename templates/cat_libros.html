@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block contenido %}
+    <main>   
+      <section class="recent">
+          <div class="activity-grid">
+              <div class="activity-card">
+              <h3>Listado de Libros</h3>
+                  <div class="table-responsive">
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>Titulo</th>
+                          <th>Fecha Publicacion</th>
+                          <th>Numero Paginas</th>
+                          <th>Formato</th>
+                          <th>Volumen</th>
+                          <th>Editorial</th>
+                          <th>Autor</th>
+                          <th>Genero</th>
+                          <th>Editar</th>
+                          <th>Borrar</th>
+                        </tr>
+                      </thead>
+                      
+                      <tbody>
+                        {% for libro in consulta %}
+                          <tr>
+                            <td class="text-td">{{libro.titulo_libro}}</td>
+                            <td class="text-td">{{libro.fecha_publicacion}}</td>
+                            <td class="text-td">{{libro.numero_paginas}}</td>
+                            <td class="text-td">{{libro.formato}}</td>
+                            <td class="text-td">{{libro.volumen}}</td>
+                            <td class="text-td">{{libro.nombre_editorial}}</td>
+                            <td class="text-td">{{libro.nombre_autor}}</td>
+                            <td class="text-td">{{libro.nombre_genero}}</td>
+                            <td><a href="/editarlibro/{{libro.id_libro}}"><span class="icon"><i class="fas fa-edit"></i></span></a></td>
+                            <td><a href="/eliminarlibro/{{libro.id_libro}}"><span class="icon"><i class="fas fa-eraser"></i></span></a></td>
+                          </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+              </div>
+              <br>
+              <button><a href="/libro">Nuevo Libro</a></button>
+            </div>
+      </section>
+    </main>
+{% endblock %}
