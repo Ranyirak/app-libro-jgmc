@@ -396,9 +396,8 @@ def eliminarlibro(id):
 @app.route('/agregarfav/<id>')
 def agregarlibro(id):
     libro = Libro.query.filter_by(id_libro = int(id)).first()
-    usuario = Usuarios.query.filter_by(id_usuario = int(1)).first()
     id_libro = libro.id_libro
-    id_usuario = usuario.id_usuario
+    id_usuario = 1
     nuevo_favorito = MisFavoritos(id_libro = id_libro, id_usuario = id_usuario)
     db.session.add(nuevo_favorito)
     db.session.commit()
