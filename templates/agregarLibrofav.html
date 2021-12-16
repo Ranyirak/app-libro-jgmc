@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block contenido %}
+    <main>   
+        <section class="recent">
+            <div class="activity-grid">
+                <div class="activity-card">
+                <h3>Agregar el Libro a Favoritos?</h3>
+                    <div class="table-responsive">
+                        <form action="/marcarfav" method="post">
+                            <label for="titulo" class="lab-crear">Titulo del libro:</label>
+                            <input type="text" name="titulo_libro" class="nosel" value="{{libro.titulo_libro}}">
+
+                            {% for usuario in usuario %}
+                            <input type="hidden" name="id_usuario" value="{{usuario.id_usuario}}">
+                            {% endfor %}
+
+                            <input type="hidden" name="id_libro" value="{{libro.id_libro}}">
+                            <br>
+                            <br>
+                            <input type="submit" value="Aceptar">
+                        </form>
+                    </div>
+                </div>
+              </div>
+        </section>
+    </main>
+{% endblock %}
