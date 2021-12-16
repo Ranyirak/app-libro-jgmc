@@ -393,15 +393,19 @@ def eliminarlibro(id):
     return redirect('/cat_libros')
 
 #Metodo para agregar un libro a favoritos
-@app.route('/agregarfav/<id>', methods=['POST'])
+@app.route('/agregarfav/<id>')
 def agregarlibro(id):
     libro = Libro.query.filter_by(id_libro = int(id)).first()
     id_libro = libro.id_libro
     id_usuario = int(1)
-    nuevo_favorito = MisFavoritos(id_libro = id_libro, id_usuario = id_usuario)
+    id_lista_favoritos = int(1)
+    nuevo_favorito = MisFavoritos(id_lista_favoritos = id_lista_favoritos, id_libro = id_libro, id_usuario = id_usuario)
     db.session.add(nuevo_favorito)
     db.session.commit()
     return redirect('/cat_libros')
+
+#Metodo para meter la informacion a la tabla de favoritos
+
 
 ###################################################################################################
 #Metodo para ir a la pagina de misfavoritos
