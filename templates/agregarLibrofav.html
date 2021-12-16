@@ -11,10 +11,7 @@
                             <label for="titulo" class="lab-crear">Titulo del libro:</label>
                             <input type="text" name="titulo_libro" class="nosel" value="{{libro.titulo_libro}}">
 
-                            {% for usuario in usuario %}
                             <input type="hidden" name="id_usuario" value="{{usuario.id_usuario}}">
-                            {% endfor %}
-
                             <input type="hidden" name="id_libro" value="{{libro.id_libro}}">
                             <br>
                             <br>
