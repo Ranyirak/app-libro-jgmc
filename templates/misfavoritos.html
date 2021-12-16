@@ -1,5 +1,32 @@
 {% extends "layout.html" %}
 
 {% block contenido %}
-    
+    <main>   
+      <section class="recent">
+          <div class="activity-grid">
+              <div class="activity-card">
+              <h3>Listado de Favoritos</h3>
+                  <div class="table-responsive">
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>Titulo del Libro</th>
+                          <th>Borrar</th>
+                        </tr>
+                      </thead>
+                      
+                      <tbody>
+                        {% for favorito in consulta %}
+                          <tr>
+                            <td class="text-td">{{favorito.titulo_libro}}</td>
+                            <td><a href="/eliminarfav/{{favorito.id_libro}}"><span class="icon"><i class="fas fa-eraser"></i></span></a></td>
+                          </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+              </div>
+            </div>
+      </section>
+    </main>
 {% endblock %}

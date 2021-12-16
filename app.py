@@ -396,17 +396,28 @@ def eliminarlibro(id):
 @app.route('/agregarfav/<id>')
 def agregarlibro(id):
     libro = Libro.query.filter_by(id_libro = int(id)).first()
+    usuario = Usuarios.query.filter_by(id_usuario = int(1)).first()
+    id_libro = libro.id_libro
+    id_usuario = usuario.id_usuario
+    nuevo_favorito = MisFavoritos(id_libro = id_libro, id_usuario = id_usuario)
+    db.session.add(nuevo_favorito)
     db.session.commit()
-    return redirect('/misfavoritos.html', libro = libro)
+    return redirect('/cat_libros')
 
 ###################################################################################################
 #Metodo para ir a la pagina de misfavoritos
 @app.route('/misfavoritos')
 def misfavoritos():
+    consulta_fav = MisFavoritos.query.join(Libro, MisFavoritos.id_libro == Libro.id_libro).join(Usuarios, MisFavoritos.id_usuario == Usuarios.id_usuario).add_columns(Libro.titulo_libro, Libro.id_libro)
+    return render_template("misfavoritos.html", consulta = consulta_fav)
 
-    return render_template("misfavoritos.html")
-
-#Metodo para agregar a favoritos un libro
+#Metodo para eliminar un libro de favoritos
+@app.route('/eliminarfav/<id>')
+def eliminarfav(id):
+    favorito = MisFavoritos.query.filter_by(id_libro = int(id)).delete()
+    print(favorito)
+    db.session.commit()
+    return redirect('/misfavoritos')
 
 ###################################################################################################
 if __name__ == "__main__":

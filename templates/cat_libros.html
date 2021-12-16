@@ -18,6 +18,7 @@
                           <th>Editorial</th>
                           <th>Autor</th>
                           <th>Genero</th>
+                          <th>Favorito</th>
                           <th>Editar</th>
                           <th>Borrar</th>
                         </tr>
@@ -34,6 +35,7 @@
                             <td class="text-td">{{libro.nombre_editorial}}</td>
                             <td class="text-td">{{libro.nombre_autor}}</td>
                             <td class="text-td">{{libro.nombre_genero}}</td>
+                            <td><a href="/agregarfav/{{libro.id_libro}}"><span class="icon"><i class="fas fa-heart"></i></span></a></td>
                             <td><a href="/editarlibro/{{libro.id_libro}}"><span class="icon"><i class="fas fa-edit"></i></span></a></td>
                             <td><a href="/eliminarlibro/{{libro.id_libro}}"><span class="icon"><i class="fas fa-eraser"></i></span></a></td>
                           </tr>
