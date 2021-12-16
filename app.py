@@ -83,7 +83,7 @@ class Libro(db.Model):
 #Tabla de mis favoritos
 class MisFavoritos(db.Model):
     __tablename__ = "misfavoritos"
-    id_lista_favoritos = db.Column(db.Integer, primary_key=True)
+    id_lista_favoritos = db.Column(db.Integer)
 
     id_libro = db.Column(db.Integer, db.ForeignKey("libro.id_libro"))
     id_usuario = db.Column(db.Integer, db.ForeignKey("usuarios.id_usuario"))
@@ -403,9 +403,6 @@ def agregarlibro(id):
     db.session.add(nuevo_favorito)
     db.session.commit()
     return redirect('/cat_libros')
-
-#Metodo para meter la informacion a la tabla de favoritos
-
 
 ###################################################################################################
 #Metodo para ir a la pagina de misfavoritos
