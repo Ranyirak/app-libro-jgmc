@@ -83,13 +83,11 @@ class Libro(db.Model):
 #Tabla de mis favoritos
 class MisFavoritos(db.Model):
     __tablename__ = "misfavoritos"
-    id_lista_favoritos = db.Column(db.Integer)
-
+    id_lista_favoritos = db.Column(db.Integer, primary_key=True)
     id_libro = db.Column(db.Integer, db.ForeignKey("libro.id_libro"))
     id_usuario = db.Column(db.Integer, db.ForeignKey("usuarios.id_usuario"))
 
-    def __init__(self, id_lista_favoritos, id_libro, id_usuario):
-        self.id_lista_favoritos = id_lista_favoritos
+    def __init__(self, id_libro, id_usuario):
         self.id_libro = id_libro
         self.id_usuario = id_usuario
 
@@ -396,10 +394,12 @@ def eliminarlibro(id):
 @app.route('/agregarfav/<id>')
 def agregarlibro(id):
     libro = Libro.query.filter_by(id_libro = int(id)).first()
+    favorito = MisFavoritos.query.order_by(MisFavoritos.id_lista_favoritos.desc()).first
     id_libro = libro.id_libro
     id_usuario = int(1)
-    id_lista_favoritos = int(1)
-    nuevo_favorito = MisFavoritos(id_lista_favoritos = id_lista_favoritos, id_libro = id_libro, id_usuario = id_usuario)
+    id_favorito = favorito.id_lista_favoritos
+    nuevo_id_favoritos = id_favorito+1
+    nuevo_favorito = MisFavoritos(id_lista_favoritos = nuevo_id_favoritos, id_libro = id_libro, id_usuario = id_usuario)
     db.session.add(nuevo_favorito)
     db.session.commit()
     return redirect('/cat_libros')
