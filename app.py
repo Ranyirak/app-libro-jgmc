@@ -395,7 +395,7 @@ def eliminarlibro(id):
 def agregarfav(id):
     libro = Libro.query.filter_by(id_libro = int(id)).first()
     print(libro)
-    usuario = Usuarios.query.filter_by(id_libro = int(1)).first()
+    usuario = Usuarios.query.filter_by(id_usuario = int(1)).first()
     print(usuario)
     return render_template("agregarLibrofav.html", libro = libro, usuario = usuario)
 
